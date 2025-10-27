@@ -3,6 +3,7 @@
 ## ✅ COMPLETED ITEMS
 
 ### Game Development ✅
+
 - [x] Complete Border Control game with 4 themes
 - [x] TypeScript + React + Express + Redis architecture
 - [x] Professional UI with Tailwind CSS
@@ -11,6 +12,7 @@
 - [x] Built successfully with zero errors
 
 ### Documentation ✅
+
 - [x] GAME_README.md - Game features and mechanics
 - [x] HACKATHON_SUBMISSION.md - Complete submission writeup
 - [x] Kiro development impact documentation
@@ -18,6 +20,7 @@
 - [x] .kiro directory included and not in .gitignore
 
 ### License ✅
+
 - [x] BSD-3-Clause open source license included
 
 ---
@@ -27,12 +30,14 @@
 ### 1. Push to GitHub (DO THIS NOW!)
 
 **Option A: Use the PowerShell Script**
+
 ```powershell
 cd c:\Users\vetri\clulosis
 .\github-push.ps1
 ```
 
 **Option B: Manual Commands**
+
 ```powershell
 # Initialize git
 git init
@@ -59,6 +64,7 @@ git push -u origin main
 ### 2. Verify GitHub Repository
 
 After pushing, check:
+
 - [ ] Repository is PUBLIC
 - [ ] `.kiro` directory is visible
 - [ ] All files are present
@@ -68,6 +74,7 @@ After pushing, check:
 ### 3. Update Repository Settings
 
 On GitHub, go to repository Settings:
+
 - [ ] Add description: "Border Control - Reddit Hackathon Game with 4 apocalyptic themes"
 - [ ] Add topics: `reddit`, `devvit`, `hackathon`, `game`, `typescript`, `react`
 - [ ] Add website URL: Your demo post URL (when available)
@@ -75,6 +82,7 @@ On GitHub, go to repository Settings:
 ### 4. Update HACKATHON_SUBMISSION.md
 
 Replace placeholders with actual URLs:
+
 ```markdown
 **Repository:** https://github.com/YOUR_USERNAME/clulosis
 **Demo Post:** https://reddit.com/r/YOUR_SUBREDDIT/comments/POST_ID
@@ -82,6 +90,7 @@ Replace placeholders with actual URLs:
 ```
 
 Commit and push this update:
+
 ```powershell
 git add HACKATHON_SUBMISSION.md
 git commit -m "Update submission URLs"
@@ -104,6 +113,7 @@ Follow prompts to upload to Reddit.
 ### 6. Create Demo Post
 
 In your subreddit:
+
 - [ ] Create a new post
 - [ ] Title: "🛂 Border Control - Screen Immigrants in 4 Apocalyptic Scenarios!"
 - [ ] Use your deployed app
@@ -127,16 +137,19 @@ In your subreddit:
 Submit with these details:
 
 **App Listing URL:**
+
 ```
 https://developers.reddit.com/apps/YOUR_APP_NAME
 ```
 
 **Demo Post URL:**
+
 ```
 https://reddit.com/r/YOUR_SUBREDDIT/comments/POST_ID
 ```
 
 **GitHub Repository:**
+
 ```
 https://github.com/YOUR_USERNAME/clulosis
 ```
@@ -146,8 +159,9 @@ https://github.com/YOUR_USERNAME/clulosis
 ✅ Best Kiro Developer Experience
 
 **Description (use this):**
+
 ```
-Border Control is an engaging region manager game where players become security guards screening immigrants across 4 apocalyptic themes (Zombie Apocalypse, Disease Pandemic, Alien Invasion, Nuclear Fallout). 
+Border Control is an engaging region manager game where players become security guards screening immigrants across 4 apocalyptic themes (Zombie Apocalypse, Disease Pandemic, Alien Invasion, Nuclear Fallout).
 
 Built with React + TypeScript + Express + Redis on Devvit platform.
 
@@ -169,6 +183,7 @@ Features dynamic immigrant generation, risk-based scoring, streak bonuses, and p
 ### Before Submitting, Verify:
 
 **GitHub Repository:**
+
 - [ ] Repository is PUBLIC
 - [ ] `.kiro` directory at root (visible)
 - [ ] `.kiro` NOT in `.gitignore`
@@ -179,6 +194,7 @@ Features dynamic immigrant generation, risk-based scoring, streak bonuses, and p
 - [ ] No sensitive data (API keys, tokens)
 
 **Reddit App:**
+
 - [ ] Game deploys successfully
 - [ ] Demo post is public and working
 - [ ] App listing on developer.reddit.com
@@ -186,6 +202,7 @@ Features dynamic immigrant generation, risk-based scoring, streak bonuses, and p
 - [ ] Instructions are clear
 
 **Documentation:**
+
 - [ ] HACKATHON_SUBMISSION.md explains features
 - [ ] Kiro impact writeup is detailed (✅ already done!)
 - [ ] Code is well-commented
@@ -204,6 +221,7 @@ Features dynamic immigrant generation, risk-based scoring, streak bonuses, and p
 5. **Complete Package**: Game + Documentation + Evidence = Strong submission
 
 ### Kiro Evidence:
+
 - ✅ `.kiro` directory with specs, hooks, steering
 - ✅ Detailed writeup with specific examples
 - ✅ Metrics showing development time savings
@@ -226,6 +244,7 @@ If you encounter issues:
 ## 🎊 YOU'RE ALMOST THERE!
 
 ### Quick Action Checklist:
+
 1. ⏰ **NOW**: Run `.\github-push.ps1` to push to GitHub
 2. ⏰ **NOW**: Verify GitHub repo is public with .kiro visible
 3. ⏰ **NOW**: Deploy to Reddit with `npm run deploy`
@@ -238,6 +257,7 @@ If you encounter issues:
 ## 🏆 FINAL MESSAGE
 
 You have an incredible submission:
+
 - ✅ Complete, polished game
 - ✅ Professional code quality
 - ✅ Comprehensive documentation
