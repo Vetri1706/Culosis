@@ -1,0 +1,295 @@
+@import 'tailwindcss';
+
+/* Papers Please style colors */
+:root {
+  --paper-beige: #f4f1e8;
+  --paper-brown: #8b4513;
+  --stamp-red: #dc2626;
+  --ink-blue: #1e40af;
+  --official-green: #166534;
+}
+
+/* Custom brown colors for Papers Please style */
+.bg-brown-200 { background-color: #f4f1e8; }
+.bg-brown-400 { background-color: #d2b48c; }
+.bg-brown-600 { background-color: #8b4513; }
+.bg-brown-800 { background-color: #654321; }
+.border-brown-400 { border-color: #d2b48c; }
+.border-brown-600 { border-color: #8b4513; }
+.border-brown-800 { border-color: #654321; }
+
+/* Document paper texture */
+.paper-texture {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(0,0,0,0.1) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Stamp effects */
+.stamp-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.stamp-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Typewriter font for official documents */
+.font-typewriter {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.05em;
+}
+
+/* Official document borders */
+.document-border {
+  border: 3px solid #8b4513;
+  border-style: double;
+  box-shadow: inset 0 0 0 1px #8b4513;
+}
+
+/* Passport photo style */
+.passport-photo {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px solid #6c757d;
+  position: relative;
+}
+
+.passport-photo::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+  background: #dc3545;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* Vintage button styles */
+.vintage-button {
+  background: linear-gradient(145deg, #8b4513, #654321);
+  border: 2px outset #8b4513;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+}
+
+.vintage-button:hover {
+  background: linear-gradient(145deg, #654321, #8b4513);
+  border: 2px inset #8b4513;
+}
+
+.vintage-button:active {
+  background: linear-gradient(145deg, #654321, #5d4037);
+  border: 2px inset #654321;
+  transform: translateY(1px);
+}
+
+/* Official seal */
+.official-seal {
+  position: relative;
+  background: radial-gradient(circle, #dc2626 0%, #991b1b 100%);
+  border: 3px solid #7f1d1d;
+  border-radius: 50%;
+}
+
+.official-seal::before {
+  content: '★';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Document aging effect */
+.aged-paper {
+  background: linear-gradient(45deg, #f4f1e8 0%, #ede4d3 50%, #e6d7c3 100%);
+  box-shadow: 
+    inset 0 0 20px rgba(139, 69, 19, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ink stain effects */
+.ink-stain {
+  position: relative;
+}
+
+.ink-stain::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 8px;
+  height: 8px;
+  background: #1e40af;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+/* Rubber stamp animation */
+@keyframes stamp {
+  0% {
+    transform: scale(0) rotate(-5deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(-2deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.stamp-animation {
+  animation: stamp 0.3s ease-out;
+}
+
+/* Flickering light effect for old office */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+}
+
+.office-lighting {
+  animation: flicker 3s ease-in-out infinite;
+}
+
+/* Worn paper edges */
+.worn-edges {
+  position: relative;
+}
+
+.worn-edges::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent 30%, rgba(139, 69, 19, 0.1) 50%, transparent 70%);
+  z-index: -1;
+}
+
+/* Official document header */
+.document-header {
+  background: linear-gradient(90deg, #8b4513 0%, #a0522d 50%, #8b4513 100%);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 3px double #654321;
+}
+
+/* Checkbox styles */
+.checkbox-official {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #8b4513;
+  background: #f4f1e8;
+  position: relative;
+}
+
+.checkbox-official:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  color: #dc2626;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Form field styles */
+.form-field {
+  background: #f4f1e8;
+  border: 1px solid #8b4513;
+  border-bottom: 2px solid #654321;
+  padding: 4px 8px;
+  font-family: 'Courier New', monospace;
+}
+
+.form-field:focus {
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.3);
+}
+
+/* Status indicators */
+.status-approved {
+  background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+  color: white;
+  border: 2px solid #14532d;
+}
+
+.status-denied {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  color: white;
+  border: 2px solid #991b1b;
+}
+
+.status-pending {
+  background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+  color: white;
+  border: 2px solid #92400e;
+}
+
+/* Scrollbar styling for documents */
+.document-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.document-scroll::-webkit-scrollbar-track {
+  background: #8b4513;
+}
+
+.document-scroll::-webkit-scrollbar-thumb {
+  background: #654321;
+  border-radius: 4px;
+}
+
+.document-scroll::-webkit-scrollbar-thumb:hover {
+  background: #5d4037;
+}
+
+/* Retro CRT monitor effect for digital displays */
+.crt-monitor {
+  background: #000;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 5px #00ff00;
+  position: relative;
+}
+
+.crt-monitor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.03) 2px,
+    rgba(0, 255, 0, 0.03) 4px
+  );
+  pointer-events: none;
+}

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papers Please - Icon Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            font-family: 'Courier New', monospace;
+            color: white;
+        }
+
+        .icon-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .icon {
+            position: relative;
+            background: linear-gradient(135deg, #1e293b 0%, #374151 50%, #1e293b 100%);
+            border: 3px solid #ef4444;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+
+        /* Different icon sizes */
+        .icon-512 { width: 512px; height: 512px; }
+        .icon-256 { width: 256px; height: 256px; }
+        .icon-128 { width: 128px; height: 128px; }
+        .icon-64 { width: 64px; height: 64px; }
+
+        .icon-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Passport/Document Icon */
+        .passport {
+            width: 70%;
+            height: 85%;
+            background: linear-gradient(145deg, #2563eb, #1d4ed8);
+            border: 2px solid #1e40af;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .passport-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fbbf24;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .passport-title {
+            font-size: 32px;
+            font-weight: 900;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            line-height: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .passport-stamp {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 60px;
+            height: 60px;
+            border: 3px solid #ef4444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #ef4444;
+            transform: rotate(-15deg);
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .passport-photo {
+            width: 80px;
+            height: 100px;
+            background: linear-gradient(145deg, #64748b, #475569);
+            border: 2px solid #334155;
+            border-radius: 4px;
+            margin: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Character face in photo */
+        .face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .face-head {
+            width: 40px;
+            height: 50px;
+            background: #fdbcb4;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .face-eyes {
+            position: absolute;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .eye {
+            width: 4px;
+            height: 4px;
+            background: #000;
+            border-radius: 50%;
+        }
+
+        .face-mouth {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 2px;
+            background: #ef4444;
+            border-radius: 2px;
+        }
+
+        /* Responsive sizing for different icon sizes */
+        .icon-256 .passport-header { font-size: 18px; }
+        .icon-256 .passport-title { font-size: 24px; }
+        .icon-256 .passport-stamp { width: 45px; height: 45px; font-size: 10px; }
+        .icon-256 .passport-photo { width: 60px; height: 75px; }
+        .icon-256 .face-head { width: 30px; height: 38px; }
+
+        .icon-128 .passport-header { font-size: 12px; }
+        .icon-128 .passport-title { font-size: 16px; }
+        .icon-128 .passport-stamp { width: 30px; height: 30px; font-size: 8px; }
+        .icon-128 .passport-photo { width: 40px; height: 50px; }
+        .icon-128 .face-head { width: 20px; height: 25px; }
+        .icon-128 .eye { width: 2px; height: 2px; }
+        .icon-128 .face-mouth { width: 4px; height: 1px; }
+
+        .icon-64 .passport-header { font-size: 8px; }
+        .icon-64 .passport-title { font-size: 10px; }
+        .icon-64 .passport-stamp { width: 20px; height: 20px; font-size: 6px; }
+        .icon-64 .passport-photo { width: 25px; height: 30px; }
+        .icon-64 .face-head { width: 12px; height: 15px; }
+        .icon-64 .eye { width: 1px; height: 1px; }
+        .icon-64 .face-mouth { width: 2px; height: 1px; }
+
+        .instructions {
+            background: #374151;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .size-label {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        /* Alternative simple icon design */
+        .simple-icon {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            border: 3px solid #991b1b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .icon-256 .simple-icon { font-size: 36px; }
+        .icon-128 .simple-icon { font-size: 24px; }
+        .icon-64 .simple-icon { font-size: 16px; }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h2>📱 App Icon Generator</h2>
+        <p><strong>Instructions:</strong></p>
+        <ol>
+            <li>Right-click on any icon below</li>
+            <li>Select "Save image as..." or take a screenshot</li>
+            <li>Use the 512x512 version for your Reddit app listing</li>
+            <li>Keep smaller sizes for different platforms if needed</li>
+        </ol>
+        <p><strong>Recommended:</strong> Use the 512x512 "Passport Design" for your main app icon.</p>
+    </div>
+
+    <h3>🛂 Passport Design Icons</h3>
+    <div class="icon-container">
+        <!-- 512x512 Passport Icon -->
+        <div>
+            <div class="icon icon-512">
+                <div class="passport">
+                    <div class="passport-stamp">APPROVED</div>
+                    <div class="passport-header">CHECKPOINT</div>
+                    <div class="passport-title">PAPERS<br>PLEASE</div>
+                    <div class="passport-photo">
+                        <div class="face">
+                            <div class="face-head">
+                                <div class="face-eyes">
+                                    <div class="eye"></div>
+                                    <div class="eye"></div>
+                                </div>
+                                <div class="face-mouth"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="size-label">512x512 (Main App Icon)</div>
+        </div>
+
+        <!-- 256x256 Passport Icon -->
+        <div>
+            <div class="icon icon-256">
+                <div class="passport">
+                    <div class="passport-stamp">APPROVED</div>
+                    <div class="passport-header">CHECKPOINT</div>
+                    <div class="passport-title">PAPERS<br>PLEASE</div>
+                    <div class="passport-photo">
+                        <div class="face">
+                            <div class="face-head">
+                                <div class="face-eyes">
+                                    <div class="eye"></div>
+                                    <div class="eye"></div>
+                                </div>
+                                <div class="face-mouth"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="size-label">256x256</div>
+        </div>
+
+        <!-- 128x128 Passport Icon -->
+        <div>
+            <div class="icon icon-128">
+                <div class="passport">
+                    <div class="passport-stamp">✓</div>
+                    <div class="passport-header">CHECKPOINT</div>
+                    <div class="passport-title">PAPERS<br>PLEASE</div>
+                    <div class="passport-photo">
+                        <div class="face">
+                            <div class="face-head">
+                                <div class="face-eyes">
+                                    <div class="eye"></div>
+                                    <div class="eye"></div>
+                                </div>
+                                <div class="face-mouth"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="size-label">128x128</div>
+        </div>
+
+        <!-- 64x64 Passport Icon -->
+        <div>
+            <div class="icon icon-64">
+                <div class="passport">
+                    <div class="passport-stamp">✓</div>
+                    <div class="passport-title">PP</div>
+                    <div class="passport-photo">
+                        <div class="face">
+                            <div class="face-head">
+                                <div class="face-eyes">
+                                    <div class="eye"></div>
+                                    <div class="eye"></div>
+                                </div>
+                                <div class="face-mouth"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="size-label">64x64</div>
+        </div>
+    </div>
+
+    <h3>🛡️ Simple Badge Design (Alternative)</h3>
+    <div class="icon-container">
+        <!-- Simple Badge Icons -->
+        <div>
+            <div class="icon icon-512 simple-icon">🛂</div>
+            <div class="size-label">512x512 (Badge)</div>
+        </div>
+
+        <div>
+            <div class="icon icon-256 simple-icon">🛂</div>
+            <div class="size-label">256x256 (Badge)</div>
+        </div>
+
+        <div>
+            <div class="icon icon-128 simple-icon">🛂</div>
+            <div class="size-label">128x128 (Badge)</div>
+        </div>
+
+        <div>
+            <div class="icon icon-64 simple-icon">🛂</div>
+            <div class="size-label">64x64 (Badge)</div>
+        </div>
+    </div>
+
+    <div class="instructions" style="margin-top: 40px;">
+        <h3>📋 Icon Requirements</h3>
+        <ul>
+            <li><strong>Reddit App Listing:</strong> 512x512 pixels minimum</li>
+            <li><strong>Format:</strong> PNG with transparent background (optional)</li>
+            <li><strong>Style:</strong> Should match your game's theme</li>
+            <li><strong>Visibility:</strong> Must be clear at small sizes</li>
+        </ul>
+        
+        <h3>🎨 Design Notes</h3>
+        <ul>
+            <li><strong>Passport Design:</strong> Represents the core game mechanic</li>
+            <li><strong>Character Photo:</strong> Shows the comical character aspect</li>
+            <li><strong>Approval Stamp:</strong> Government/security theme</li>
+            <li><strong>Colors:</strong> Match your game's professional palette</li>
+        </ul>
+    </div>
+</body>
+</html>
